@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPostLayout.astro"
 title: "Testing with Cypress and JavaScript"
-date: 2022-12-06
+date: 2024-01-04
 author: Gerardo Chavez
 image: {
   src: "/images/1573742136818.jpeg",
@@ -9,7 +9,7 @@ image: {
 }
 description: Introduction to Cypress.io for QA Automation Engineers
 draft: false
-category: API
+category: Cypress
 ---
 
 Testing is a crucial part of software development. It ensures that your application behaves as expected and helps catch bugs early in the development process. In this blog post, we’ll explore Cypress, an end-to-end testing framework, and discuss its pros and cons.
