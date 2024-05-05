@@ -1,0 +1,34 @@
+---
+import { Image } from "@astrojs/image/components";
+import { slugify, formatDate } from "../js/utils";
+
+const { relatedPosts } = Astro.props;
+
+---
+
+{
+  relatedPosts.map((post) => (
+    <div class="related-post">
+      <h3 class="h4">
+        <a href={post.url}>{post.frontmatter.title}</a>
+      </h3>
+      <Image
+            src={post.frontmatter.image.src}
+            alt={post.frontmatter.image.alt}
+            width="200"
+            height="100"
+            format="avif"
+            fit="cover"
+            quality={80}
+            aspectRatio="5:2"
+            class="hero-image"
+       />
+      <small>
+        <a href={`/author/${slugify(post.frontmatter.author)}/`}>
+          {post.frontmatter.author}
+        </a>{" "}
+        • {formatDate(post.frontmatter.date)}
+      </small>
+    </div>
+  ))
+}

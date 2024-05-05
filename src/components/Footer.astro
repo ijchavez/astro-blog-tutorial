@@ -1,0 +1,35 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<footer style="text-align: center;padding: 20px;background: white;">
+  <small style="color: #666; font-size: 14px;">
+    &copy; <span id="copyright" style="font-weight: bold;">2024</span> | Todos los derechos reservados
+  </small>
+  <div style="align-items: center; justify-content: center;">
+    <a href="https://github.com/ijchavez/" aria-label="github">
+      <Icon name="github" width="30" />
+    </a>
+    <a href="https://gitlab.com/ijchavez/" aria-label="gitlab">
+      <Icon name="gitlab" width="30" />
+    </a>
+    <a href="https://www.linkedin.com/in/gerardo--chavez/" aria-label="linkedin">
+      <Icon name="linkedin" width="30"/>
+    </a>
+    <a href="https://www.youtube.com/@unTesterMas" aria-label="youtube">
+      <Icon name="youtube" width="30" />
+    </a>
+    <small>
+      <a href="../../dist/rss.xml">
+        Subscribe to RSS
+        <svg viewBox="0 0 24 24" width="20" height="20" astro-icon="tabler:rss"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon-tabler"><circle cx="5" cy="19" r="1"></circle><path d="M4 4a16 16 0 0 1 16 16M4 11a9 9 0 0 1 9 9"></path></g></svg>
+      </a>
+    </small>
+  </div>
+
+</footer>
+<script>
+  document.querySelector("#copyright").textContent = new Date()
+    .getFullYear()
+    .toString();
+</script>

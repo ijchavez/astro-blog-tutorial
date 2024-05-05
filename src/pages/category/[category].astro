@@ -1,0 +1,57 @@
+---
+import PostCard from '../../components/PostCard.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+import { slugify, formatBlogPosts } from '../../js/utils';
+
+export async function getStaticPaths() {
+  return [
+    { 
+        params: { category: slugify("Reference Docs") },
+        props: { name: "Reference Docs" } 
+    },
+    { 
+        params: { category: slugify("Astro") },
+        props: { name: "Astro" } 
+    },    
+    { 
+        params: { category: slugify("API") },
+        props: { name: "API" } 
+    },
+    ,    
+    { 
+        params: { category: slugify("Selenium") },
+        props: { name: "Selenium" } 
+    },
+    { 
+        params: { category: slugify("Playwright") },
+        props: { name: "Playwright" } 
+    }
+  ]
+}
+
+const { category } = Astro.params;
+const { name } = Astro.props;
+
+const allPosts = await Astro.glob("../blog/*.md");
+const formattedPosts = formatBlogPosts(allPosts)
+const catPosts = formattedPosts.filter(post => slugify(post.frontmatter.category) === category)
+
+---
+
+<MainLayout title="Automaton Blog">
+    <section class="container" aria-label=`Posts about ${name}`>
+      <h1 class="h1">Posts about {name}</h1>
+      <div class="post-container">
+        {
+          catPosts.map((post) => (
+            <PostCard
+              frontmatter={post.frontmatter}
+              url={post.url}
+              tagType="h2"
+            />
+          ))
+        }
+      </div>
+    </section>
+  </MainLayout>

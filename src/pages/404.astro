@@ -1,0 +1,46 @@
+---
+import { Image } from "@astrojs/image/components";
+import Link from "../components/Link.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+
+import randomFourZeroFoursImgs from '../data/404sData'
+
+const img = randomFourZeroFoursImgs()
+---
+
+<MainLayout title="Ooops...">
+  <div
+    class="container"
+    style={{
+      display: "grid",
+      placeItems: "center",
+      textAlign: "center",
+      gap: "var(--space-sm)",
+    }}
+  >
+    <div>
+      <h1 class="h1">Welp, this is awkward!</h1>
+      <p>We seem to have misplaced something…</p>
+    </div>
+    <Image
+      src={img.src} 
+      alt={img.alt}
+      width="900"
+      height="450"
+      format="avif"
+      fit="cover"
+      quality={80}
+      aspectRatio="5:2"
+      class="hero-image"
+    />
+    <Link
+      href="/"
+      style="secondary"
+      text="Go Home"
+      icon={{
+        name: "tabler:home",
+        side: "right",
+      }}
+    />
+  </div>
+</MainLayout>

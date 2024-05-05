@@ -1,0 +1,44 @@
+---
+// component imports
+import Link from "./Link.astro";
+
+const { prevUrl, nextUrl, currentPage } = Astro.props;
+---
+
+<nav aria-label="Blog pages">
+  {
+    prevUrl && (
+      <Link
+        text=""
+        href={prevUrl}
+        style="primary"
+        borderVisible={true}
+        isFilled={false}
+        icon={{
+          name: "ri:arrow-left-fill",
+          side: "left",
+        }}
+      />
+    )
+  }
+  {
+    currentPage > 1 && (
+        <span class="current-page">{currentPage}</span>
+    )
+  }
+  {
+    nextUrl && (
+      <Link
+        text=""
+        href={nextUrl}
+        style="primary"
+        borderVisible={true}
+        isFilled={false}
+        icon={{
+          name: "ri:arrow-right-fill",
+          side: "right",
+        }}
+      />
+    )
+  }
+</nav>

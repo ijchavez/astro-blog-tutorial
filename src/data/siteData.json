@@ -1,0 +1,8 @@
+{
+    "title": "My Blog",
+    "description": "Just a simple blog for QA Automation Testing purposes.",
+    "image": {
+      "src": "/images/image-default.jpg",
+      "alt": "My Blog"
+    }
+  }
