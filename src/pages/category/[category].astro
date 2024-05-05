@@ -6,28 +6,19 @@ import { slugify, formatBlogPosts } from '../../js/utils';
 
 export async function getStaticPaths() {
   return [
-    { 
-        params: { category: slugify("Reference Docs") },
-        props: { name: "Reference Docs" } 
+    {
+      params: { category: slugify("Selenium") },
+      props: { name: "Selenium" },
     },
-    { 
-        params: { category: slugify("Astro") },
-        props: { name: "Astro" } 
-    },    
-    { 
-        params: { category: slugify("API") },
-        props: { name: "API" } 
+    {
+      params: { category: slugify("API") },
+      props: { name: "API" },
     },
-    ,    
-    { 
-        params: { category: slugify("Selenium") },
-        props: { name: "Selenium" } 
-    },
-    { 
-        params: { category: slugify("Playwright") },
-        props: { name: "Playwright" } 
+    {
+      params: { category: slugify("Playwright") },
+      props: { name: "Playwright" },
     }
-  ]
+  ];
 }
 
 const { category } = Astro.params;
